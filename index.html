@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Default background color */
+        body {
+            background-color: white;
+        }
+
+        /* blue background when ZONE is 'me-central-1a' */
+        body.blue {
+            background-color: blue;
+        }
+
+        /* Gray background when ZONE is 'me-central-1b' */
+        body.gray {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Web Page</h1>
+    <p>Zone: $ZONE</p>
+    <script>
+        // Function to change the background color based on the zone
+        const changeBackgroundColor = (zone) => {
+            if (zone === 'me-central-1a') {
+                document.body.classList.add('blue'); // Change to 'blue' class
+            } else if (zone === 'me-central-1b') {
+                document.body.classList.add('gray');
+            } else {
+                // Default background color is white for any other zone value
+                document.body.classList.remove('blue', 'gray'); // Remove other classes
+            }
+        };
+
+        // Call the function to change the background color based on the zone
+        changeBackgroundColor('$ZONE');
+    </script>
+</body>
+</html>
